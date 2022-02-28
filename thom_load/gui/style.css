@@ -1,0 +1,369 @@
+*
+
+{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg,#494949,#0c0c0c);
+    overflow: hidden;
+ 
+}
+
+span
+{
+    position:  absolute;
+    pointer-events: none;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0,.5));
+    animation: fadeInOut 1s linear infinite;
+}
+
+span::before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(img/emoji.png);
+    background-size: cover;
+    animation: moveShape 1s linear infinite;
+}
+
+
+@keyframes fadeInOut
+{
+    0%,100%
+    {
+    opacity: 0;
+    }
+    20%,80%
+    {
+
+    opacity: 1;
+
+    }
+}
+
+
+
+
+
+
+
+
+.menu
+{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+.menu li 
+{
+    position: absolute;
+    left: 0;
+    list-style: none;
+    transform-origin: 100px;
+    transition: 0.5s;
+    transition-delay: calc(0.1s *var(--i));
+    transform: rotate(0deg) translateX(80px);
+ 
+
+
+}
+
+
+
+
+.menu li a
+{
+display:  flex;
+justify-content: center;
+align-items: center;
+
+background:#fff;
+width: 40px;
+height: 40px;
+
+border-radius: 55%;
+transform: rotate(calc(360deg / -5 * var(--i)));
+box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+color:#0c0c0c;
+transition: 0.5s;
+
+
+}
+
+.menu.active li
+{
+
+    transform: rotate(calc(360deg / 5 * var(--i)));
+}
+
+
+
+.menu li a:hover
+{
+    color: #7f47c0;
+}
+
+.toggle{
+
+    position: absolute;
+    width: 60px;
+    height:  60px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0px 4px rgba(0,0,0,0,0.15);
+    font-size: 2em;
+    transition: 1.25s;
+
+
+
+}
+
+.menu.active .toggle
+
+{
+    transform: rotate(320deg); 
+}
+
+
+
+
+
+/* 
+
+
+    TLO OCZY
+
+
+*/
+
+
+
+.box
+{
+
+    display: flex;
+    position: absolute;
+
+
+}
+
+
+.box .eye
+{
+    top: -200px;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: block;
+    background: #fff;
+    margin: 0 20px;
+    border-radius: 50%;
+    box-shadow: 0 5px 45px rgba(0,0,0,0.2),
+    
+                
+    inset 0 0 15px #494949,
+    inset 0 0 15px #494949;
+
+
+}
+
+
+.box .eye::before
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 35px;
+    transform: translate(-50%,-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #000;
+    border: 10px solid #7f47c0;
+    box-sizing: border-box;
+
+
+}
+
+
+
+
+
+
+
+/* 
+
+
+
+
+ANIMACJA LADOWANIA
+
+
+
+*/
+
+.loader
+{
+    bottom: 7px;
+    position:  absolute;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0002);
+}
+
+
+.loader::before
+{
+
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: #4f2185;
+    animation: blinkCursor 0.8s steps(3) infinite;
+
+
+}
+
+
+@keyframes blinkCursor
+{
+    0%, 75%
+    {
+
+        opacity: 1;
+
+    }
+      76%, 100%
+    {
+
+        opacity: 0;
+
+    }
+}
+
+
+
+.loader h2
+{
+
+    position: relative;
+    color: #6f3297;
+    border: #000000;
+    letter-spacing: 4.9px;
+    font-size: 4em;
+    font-family: 'Staatliches', cursive;
+    text-transform: uppercase;
+    animation: typing 8s steps(13) infinite;
+    overflow: hidden;
+
+}
+
+
+@keyframes typing 
+{
+    0%,90%,100%
+    {
+        width: 0;
+    }
+    30%,60%
+    {
+        width: 364.95px;
+    }
+
+
+
+}
+
+
+
+/* 
+
+mini logo
+
+*/
+
+
+.logo
+{
+
+    display: flex;
+    position: absolute;
+
+}
+
+.logo p
+{
+
+
+
+
+
+
+    top: 239px;
+    position: relative;
+    display: block;
+    font-size: 30px;
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 1px;    
+    color: #fff;
+    text-shadow: #000;
+
+
+}
+
+.logo p1
+{
+
+
+
+
+
+
+    top: 239px;
+    position: relative;
+    display: block;
+    font-size: 30px;
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 1px;    
+    color: #7f47c0;
+    text-shadow: #000;
+
+
+}
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+
+
